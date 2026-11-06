@@ -18,6 +18,8 @@ Nên mọi skill trong repo này tuân theo cùng một luật:
 | Skill | Mô tả | Gốc |
 |---|---|---|
 | [`ui-ux-pro-max`](ui-ux-pro-max/SKILL.md) | UI/UX design intelligence: bảng ưu tiên 10 nhóm luật, workflow 4 bước, anti-pattern, checklist 16 mục trước khi giao UI | `huytran1120/vie-agentic-skills` |
+| [`handoff-that-arrives`](handoff-that-arrives/SKILL.md) | Giao việc cho bot khác phải tới tay: cấm viết `[to X]` trong chat, chỉ `message_bot` / `handoff_to_bot` là gửi thật, kèm luật bằng chứng gửi | tự viết |
+| [`write-then-read-back`](write-then-read-back/SKILL.md) | Sau mọi write phải đọc lại field thật trong cùng lượt trước khi báo done — `ok:true` chỉ chứng minh lệnh chạy, không chứng minh nội dung | tự viết |
 
 ## Cách dùng
 
