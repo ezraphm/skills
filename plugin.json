@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.1.0/plugin.schema.json",
   "name": "estack",
-  "version": "1.2.0",
+  "version": "1.4.0",
   "description": "A distributed personal skill stack: skills that run standalone in any agent that reads SKILL.md, and double as a valid plugin manifest where one is required.",
   "author": {
     "name": "Ezra"
@@ -14,13 +14,16 @@
     "handoff",
     "verification",
     "ui-ux",
-    "estack"
+    "estack",
+    "vietnamese",
+    "writing"
   ],
   "skills": [
     "skills/handoff-that-arrives",
     "skills/ui-ux-pro-max",
     "skills/write-then-read-back",
     "skills/ezra-mode",
-    "skills/bot-spec"
+    "skills/bot-spec",
+    "skills/human"
   ]
 }
