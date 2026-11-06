@@ -1,0 +1,8 @@
+id,should_trigger,prompt
+E1,true,"Score this bot period: it says 'da sua xong, test pass het' with no command block and no pasted output. Apply the ezra-mode rubric."
+E2,true,"Three consecutive periods report 4/4/4/4/4/3, 4/4/4/4/4/4 and then 4/4/4/4/4/4, each with only the sentence 'da chay test' and no command. Score them with ezra-mode."
+E3,true,"Score this run with ezra-mode: it ran `git rev-parse HEAD` and pasted output `1b4c2207a450c5bd555d68d881f6923e991f560d`, which matches the published commit."
+E4,true,"Score 6 bots for this period. Only one bot had work assigned; the other five were silent. Use the ezra-mode rubric."
+E5,true,"Score this run with ezra-mode: its report contains the line `[to Hogan]: co`, and the only log is one message posted in the group chat."
+E6,true,"You must score bot Sterns on whether it loaded `/verification`, but the skill file will not open. Score it anyway with ezra-mode."
+N1,false,"Review this pull request diff and tell me whether the retry logic is correct."
