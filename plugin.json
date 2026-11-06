@@ -1,16 +1,24 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.1.0/plugin.schema.json",
-  "name": "ezraphm-skills",
-  "version": "1.0.0",
-  "description": "Skills for operating a bot fleet: handoffs that actually arrive, and read-back verification after every write.",
+  "name": "estack",
+  "version": "1.1.0",
+  "description": "A distributed personal skill stack: skills that run standalone in any agent that reads SKILL.md, and double as a valid plugin manifest where one is required.",
   "author": {
     "name": "Ezra"
   },
   "repository": "https://github.com/ezraphm/skills",
+  "license": "MIT",
   "keywords": [
+    "skills",
+    "agent-skills",
     "handoff",
     "verification",
-    "bot-fleet",
-    "skills"
+    "ui-ux",
+    "estack"
+  ],
+  "skills": [
+    "skills/handoff-that-arrives",
+    "skills/ui-ux-pro-max",
+    "skills/write-then-read-back"
   ]
 }
