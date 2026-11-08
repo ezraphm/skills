@@ -1,0 +1,24 @@
+# case e6 - deterministic checks
+# repo    /home/rakazo/skills-plugin-work/ezraphm-skills
+# draft   /home/rakazo/shared/specs/ezra-mode-v1.3.0-draft.md
+# v1.2.0  git 1b4c220:skills/ezra-mode/SKILL.md
+
+## D0 repo state
+$ git rev-parse --short HEAD
+1b4c220
+$ git branch --show-current
+feature/ezra-mode-1.3.0
+$ grep -c "^| [0-9] |" <draft>   # criterion rows, must be 7
+7
+$ sha256sum <draft>
+adc141745c6f4534832cf7e8f46588104fe278e6a565e3b92300fba9d96b73d8
+
+## D1 anchor greps (grep -nF, raw output, exit code printed)
+$ grep -nF -- 'does not contain, from memory' <draft v1.3.0>
+107:- Scoring a rule the skill file does not contain, from memory, then quoting it as if it had been
+[exit 0]
+$ git show 1b4c220:skills/ezra-mode/SKILL.md | grep -nF -- 'does not contain, from memory'
+[exit 1]
+
+## D2 anchor length (must be <= 40 chars, one physical line)
+does not contain, from memory -> 29 chars
