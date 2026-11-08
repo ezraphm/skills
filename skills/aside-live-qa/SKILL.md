@@ -88,6 +88,7 @@ console.log(t.map(x => ({ id: x.targetId, active: x.active, url: x.url })));
 | `openTab('chrome://extensions/')` | Tab được tạo nhưng **không thành page**: `waitForInteractive` timeout 30s |
 | `page.goto('chrome://extensions/')` | `page` = `null` |
 | `page.evaluate` trên `chrome://…` | Bị chặn — scheme nội bộ không cho script chèn |
+| `attachBrowserTab` / `snapshot` trên tab `chrome://…` | **Chưa đo** — đừng viết như đã biết |
 | `chrome.management.setEnabled(id, false→true)` | Không có `reload` trong API công khai |
 | Cài extension thứ ba để reload hộ (`http://reload.extensions`) | Cần đồng ý + là dependency lạ; `manifest.json` không được nạp lại bằng cách này |
 
