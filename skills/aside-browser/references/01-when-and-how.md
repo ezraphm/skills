@@ -34,14 +34,17 @@ Do not infer command syntax from this skill or from memory. The guide is version
 
 ## Report shape
 
-Four fields, no prose padding:
+Five fields, no prose padding:
 
 - **What**: the site and the goal, one clause.
-- **Evidence**: URL, element text, count, file path, screenshot — whatever the "what proves it worked" line said.
+- **Evidence**: URL, element text, count, file path, screenshot — whatever the "what proves it worked" line said. For a claim that depends on a page's content, the date accessed goes here.
+- **Coverage**: how much of the source you actually read, and what was gated. Say it as a fact, not a feeling: "read 0-19626 chars of 19919, hard paywall" or "full page, signed in" or "public part only, body behind sign-in". A source you only half-read cannot support a whole-source claim.
 - **Blocked**: what stopped you, or `none`.
 - **Approval needed**: the exact action waiting on the user, or `no`.
 
 Never report "opened the page" as an accomplishment. The accomplishment is what the page now shows.
+
+A gated source is not a failed source. Report the readable portion, name the gate (paywall, sign-in, sales form, region), and mark any claim that lives in the unread portion as unverified rather than guessed.
 
 ## What Aside is not for
 
