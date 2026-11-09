@@ -1,6 +1,6 @@
 ---
 name: handoff-that-arrives
-description: Use when assigning work to another bot. Blocks writing "[to X]" inside the chat reply - only message_bot / handoff_to_bot actually delivers. Includes the proof-of-send rules and the write-then-read-back verification rule.
+description: Use when assigning work to another bot. Blocks prose-only assignments; use an actually exposed assignment tool. Completed-stage reports use report-to-cos, not ownership-transfer bounces. Includes the proof-of-send rules and the write-then-read-back verification rule.
 ---
 
 # A handoff must arrive, not be written down nicely
@@ -10,20 +10,27 @@ Writing `[to Hogan]`, `[to Ward]`, `[to Kane]`, `[to anyone]` at the start of a 
 
 Absolutely forbidden.
 
-## Before writing any block that names another bot
+## Completed reports are not assignments
+
+A final in the invoked shared thread is valid platform posting, not proof of coordinator activation.
+Use report-to-cos: RESULT_WRITTEN -> POSTED -> ACKNOWLEDGED. Never hand a completed stage back
+merely to report: handoff transfers ownership. No send-only tool exposed means use the invoked-thread
+fallback with ACK pending, not invent message_bot. The rules below govern distinct work assignments.
+
+## Before assigning distinct work to another bot
 1. Ask yourself: "Which tool will carry this?"
-2. If the answer is not `message_bot` or `handoff_to_bot` -> STOP. Do not write it.
-3. To assign work -> call `message_bot` IN THAT SAME TURN. The handoff body is a tool argument, never chat prose.
+2. Inspect the actual exposed contract. Use message_bot only if exposed, or handoff_to_bot for a distinct next stage. If neither is available, STOP and state NOT SENT.
+3. To assign work -> call the actually exposed assignment tool IN THAT SAME TURN. The handoff body is a tool argument, never chat prose.
 4. Never write "I will message", "I sent", "just sent" unless a tool result ok:true exists in this turn.
 
 ## Shape of a correct handoff
 measurable objective - in scope / out of scope - sources - expected output - completion evidence - deadline - what needs approval.
-Send it with `message_bot(bot_id, message)`. For a group: `handoff_to_bot(group_id, bot_id, message)`.
+Use the exposed assignment tool and its actual schema; do not assume tool availability or parameter names.
 
 ## Proof of sending: only three things count
 - A tool result returned in this turn (ok:true + bot_id).
 - A reply the other bot sends back (the system's `[from X]` block).
-- A file path written plus `ls -l` in this turn.
+- A destination-linked platform message receipt. A local file plus ls -l proves only RESULT_WRITTEN, not delivery.
 
 Not proof: your own prose, "sent at 20:10" typed by yourself, or a plan to send.
 
@@ -37,7 +44,7 @@ After every write - instructions, routine prompt, issue field, comment, file - r
 Observed failure: `schedule_update` returned ok:true on a routine prompt while the content was never read back; `schedule_create` returned ok:true when the correct answer was "already exists". Treat ok:true alone as unproven.
 
 ## When reporting to the owner
-Write only: "sent to X - message_bot returned ok:true, <time>". With no ok:true this turn -> write NOT SENT.
+For assignments, cite actual transport evidence and destination; otherwise say NOT SENT. For completed reports, use POSTED or ACKNOWLEDGED only with report-to-cos evidence.
 
 ## Self-check before ending the turn
 - Does every bot named with work to do have one successful message_bot/handoff_to_bot call this turn?
