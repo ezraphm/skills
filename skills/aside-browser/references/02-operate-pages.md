@@ -9,6 +9,17 @@
 
 Refs go stale after a navigation, a modal, or a re-render. When an action returns "element not found", the answer is a fresh snapshot, not a retry with the same ref.
 
+## REPL when the check must be deterministic
+
+A plain task prompt lets the agent decide how to drive the page, which is right for a one-off read and wrong when the same check runs again and must come out the same. Use `aside repl` for those:
+
+- **It is Playwright-shaped**: `page`, `tabs`, locators, screenshots, downloads, `page.evaluate`.
+- **The difference that matters**: the REPL also yields the same snapshots and stable element refs the browser agent acts on, so a click or an assertion in your script lines up with what Aside itself would do. A selector you invented that only works in Playwright is not evidence about the page.
+- **Use it when** a QA run has to be repeatable, when a verdict depends on an exact assertion, or when the check is machine-readable output rather than a description.
+- **Do not use it to bypass judgement.** Determinism is about the driver, not the approval rules; a write in a REPL still needs the boundary in `08`.
+
+A task prompt is fine, and cheaper, when you are reading one page and will narrate the result.
+
 ## Batch what cannot surprise you
 
 Predictable sequences (fill three fields, tick a box, then submit) can be batched. Insert a snapshot before anything that could change the page: a submit, a navigating click, a dropdown that reveals new fields, anything that might open a dialog. One extra snapshot is cheaper than a wrong action on a stale ref.
