@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.1.0/plugin.schema.json",
+  "name": "rakazo-operations",
+  "version": "0.1.0",
+  "description": "Rakazo skills for delegation, result reporting, evidence review, write verification, bot specs and context management.",
+  "keywords": [
+    "rakazo",
+    "skills",
+    "delegation",
+    "verification"
+  ]
+}
