@@ -1,4 +1,4 @@
-# Rakazo Operations — v0.2.0
+# Rakazo Operations — v0.2.1
 
 Bộ skill Rakazo làm lại từ các bài học về giao việc, báo cáo và memory.
 Đây là candidate cục bộ, chưa được preview/import hay chạy behavioral eval trên Rakazo.
