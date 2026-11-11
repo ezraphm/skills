@@ -10,7 +10,8 @@ assert manifest['$schema'] == 'https://agent-plugins.org/schemas/1.1.0/plugin.sc
 assert re.fullmatch(r'[a-z0-9]+(?:[.-][a-z0-9]+)*', manifest['name'])
 assert 'skills' not in manifest, 'Filesystem inventory, not an unsupported allowlist'
 expected = {'rz-agent-delegation', 'rz-result-reporting', 'rz-evidence-review',
-            'rz-write-verification', 'rz-bot-spec', 'rz-context-management'}
+            'rz-write-verification', 'rz-bot-spec', 'rz-context-management',
+            'rz-aside-browser'}
 entries = list((root / 'skills').glob('*/SKILL.md'))
 assert {p.parent.name for p in entries} == expected
 total = 0
@@ -39,7 +40,7 @@ for p in root.rglob('*'):
         assert p.stat().st_size <= 100000, p
         total += p.stat().st_size
 assert total <= 4000000
-assert len(list(root.rglob('SKILL.md'))) == 6
+assert len(list(root.rglob('SKILL.md'))) == 7
 assert not (root / 'mcp.json').exists()
 assert not any((root / p).exists() for p in ['agents', 'commands', 'rules', 'hooks', 'automations'])
 print(f'PACKAGE PASS: {len(entries)} skills; relative references resolve; {total} bytes')

@@ -1,4 +1,4 @@
-# Rakazo Operations — v0.1.0
+# Rakazo Operations — v0.2.0
 
 Bộ skill Rakazo làm lại từ các bài học về giao việc, báo cáo và memory.
 Đây là candidate cục bộ, chưa được preview/import hay chạy behavioral eval trên Rakazo.
@@ -7,7 +7,7 @@ Bộ skill Rakazo làm lại từ các bài học về giao việc, báo cáo v�
 
 Plugin root là thư mục này. Khi được phép publish, dùng public GitHub folder URL trỏ đúng
 `rakazo`, không dùng root estack để thử bộ này riêng.
-Sau preview cần kiểm 6 skills, references và skipped parts; chưa có preview thì chưa gọi installable đã được chứng minh.
+Sau preview cần kiểm 7 skills, references và skipped parts; chưa có preview thì chưa gọi installable đã được chứng minh.
 Không chứa MCP, commands, agents, scripts, hooks hoặc automation.
 
 Tên skills là inventory importer theo filesystem; manifest dùng Agent Plugins 1.1.0.
@@ -23,10 +23,12 @@ Bộ mới có prefix rz- và không phụ thuộc cài skill cũ:
 - write-then-read-back → rz-write-verification
 - bot-spec → rz-bot-spec
 - memory/context findings → rz-context-management
+- Aside browser routing → rz-aside-browser
 
 Skill cũ giữ nguyên trong estack để đối chiếu. Không mặc định cài cả hai bộ:
 các description có thể cạnh tranh activation. Pilot bộ mới riêng; chưa tự gỡ/cài skill nào.
-Human/UI/browser skills ngoài phạm vi migration này.
+Skill `rz-aside-browser` hướng dẫn Rakazo chọn đúng công cụ khi Aside MCP có mặt; nó không thay đổi
+Team Computer hay cấp quyền cho Aside. Skill Aside CLI tổng quát ở `../skills/aside-browser` là artifact riêng.
 
 Không hardcode bot IDs, Rosie/Chief hoặc shared paths. Role/destination lấy từ task.
 Không bắt chấm điểm mọi lượt, independent second-agent reproduction mọi việc hoặc outbox write.
